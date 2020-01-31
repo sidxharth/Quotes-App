@@ -1,0 +1,42 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import './quotelist.dart';
+import './quotecard.dart';
+
+void main() => runApp(QuoteList());
+
+class QuoteList extends StatefulWidget {
+  @override
+  _QuoteListState createState() => _QuoteListState();
+}
+
+class _QuoteListState extends State<QuoteList> {
+
+  //List<String> quotes = [
+  //  '“Two things are infinite: the universe and human stupidity; and I\'m not sure about the universe.” ― Albert Einstein',
+  //  '“Be yourself; everyone else is already taken.” ― Oscar Wilde',
+  //  '“So many books, so little time.” ― Frank Zappa'
+  //];
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.grey[300],
+        appBar: AppBar(
+          title: Text('QUOTES'),
+          centerTitle: true,
+          backgroundColor: Colors.red[600],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+              children: quotes.map((quote) {
+                return QuoteCard(quote: quote);
+              }).toList(),
+          ),
+        ),
+      ),
+    );
+  }
+}
